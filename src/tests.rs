@@ -1,10 +1,11 @@
 use super::rocket;
-use rocket::local::Client;
+use rocket::local::blocking::Client;
+use rocket::http::Status;
 
 #[test]
 fn hello_world() {
-    let rocket = rocket::ignite().mount("/", routes![super::hello]);
-    let client = Client::new(rocket).unwrap();
-    let mut response = client.get("/").dispatch();
-    assert_eq!(response.body_string(), Some("Hello, world!".into()));
+    let client = Client::tracked(rocket()).expect("valid rocket instance");
+    let response = client.get(uri!(super::index)).dispatch();
+    assert_eq!(response.status(), Status::Ok);
+    assert_eq!(response.into_string().unwrap(), "Hello, world!");
 }

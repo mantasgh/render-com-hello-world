@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Submissions</title>
+</head>
+<body>
+  <h2>Submissions</h2>
+  <ul>
+    {% for submission in submissions %}
+      <li>{{submission.firstname}} {{submission.lastname}}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

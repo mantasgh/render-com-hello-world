@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Form</title>
+</head>
+<body>
+  <h2>Contact Us</h2>
+  <form method="post" action="/submit">
+    <label for="first-name">First name:</label>
+    <input type="text" id="firstname" name="firstname">
+    <label for="last-name">Last name:</label>
+    <input type="text" id="lastname" name="lastname">
+    <button>Submit</button>
+  </form>
+</body>
+</html>
